@@ -3,16 +3,16 @@ package sb.magicMachine;
 import java.util.*;
 
 public class Main {
-    static Queue<Integer> queue = new ArrayDeque<>();
-
     public static void main(String[] args) {
-        solution(14, 29);
+        int result = solution(14, 29);
+        System.out.println(result);
     }
 
+
+
     private static int solution(int a, int b) {
-
+        Queue<Integer> queue = new ArrayDeque<>();
         if (a == b) return 0;
-
         goDeeper(a, queue);
         int operationsCounter = 1;//т.к одна операция уже была выше
 
@@ -21,7 +21,7 @@ public class Main {
 
             if (queue.contains(b)) {
                 System.out.println("Чтобы с числа " + a + " сделать число " +
-                        b + " нужно было " + operationsCounter + " Нажатий");
+                        b + " нужно было минимум " + operationsCounter + " Нажатий");
                 return operationsCounter;
             } else {
 
